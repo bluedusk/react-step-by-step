@@ -1,6 +1,6 @@
 import React from "react";
 
-const DataTable = ({ data, onDel, onEdit }) => (
+export const DataTable = ({ data, onDel, onEdit }) => (
   <div className="content">
     <table className="table">
       <thead>
@@ -31,5 +31,3 @@ const DataTable = ({ data, onDel, onEdit }) => (
     </table>
   </div>
 );
-
-export default DataTable;

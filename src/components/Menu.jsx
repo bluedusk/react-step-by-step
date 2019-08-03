@@ -1,14 +1,12 @@
 import React from "react";
 
-const Menu = ({ onBtnClick }) => (
+export const Menu = ({ onClickHome, onClickAdd }) => (
   <div className="menu">
-    <button className="button" onClick={() => onBtnClick("home")}>
+    <button className="button" onClick={onClickHome}>
       Home
     </button>
-    <button className="button" onClick={() => onBtnClick("add")}>
+    <button className="button" onClick={onClickAdd}>
       Add
     </button>
   </div>
 );
-
-export default Menu;
