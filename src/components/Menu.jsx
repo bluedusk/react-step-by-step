@@ -1,12 +1,21 @@
 import React from "react";
-
-export const Menu = ({ onClickHome, onClickAdd }) => (
+import { Link } from "react-router-dom";
+export const Menu = ({ onClickAdd }) => (
   <div className="menu">
-    <button className="button" onClick={onClickHome}>
+    <Link className="button" to="/" onClick={onClickAdd}>
       Home
-    </button>
-    <button className="button" onClick={onClickAdd}>
+    </Link>
+    <Link className="button" to="/add">
       Add
-    </button>
+    </Link>
+    <Link className="button" to="/about">
+      About
+    </Link>
+    <Link className="button" to="/contact">
+      Contact
+    </Link>
+    <Link className="button" to="/admin">
+      Admin
+    </Link>
   </div>
 );

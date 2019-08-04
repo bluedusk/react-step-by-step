@@ -4,7 +4,7 @@ import { DataForm } from "./Form";
 export const AddEditForm = ({ person: currentPerson, onSubmit }) => {
   const [person, setPerson] = useState(
     currentPerson || {
-      id: null,
+      id: undefined,
       name: "",
       age: ""
     }

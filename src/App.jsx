@@ -3,26 +3,28 @@ import { Menu } from "./components/Menu";
 import { DataTable } from "./components/Table";
 import { AddEditForm } from "./components/AddEditForm";
 import MockData from "./mock/mockService";
-
+import { Route, Switch, withRouter } from "react-router-dom";
+import { NoMatch } from "./404";
 import "./App.css";
 
-export const App = () => {
+export const About = () => <h4>About</h4>;
+export const Contact = () => <h4>Contact</h4>;
+
+export const App = withRouter(({ history }) => {
   const [data, setData] = useState([]);
-  const [menu, setMenu] = useState("home");
   const [currentPerson, setCurrentPerson] = useState(null);
 
+  console.log(history);
   // side effect
   useEffect(() => {
     setData(MockData);
   }, []);
 
-  const go = menu => setMenu(menu);
-
   const del = person => setData(data.filter(item => item.id !== person.id));
 
   const edit = person => {
     setCurrentPerson(person);
-    go("edit");
+    history.push("/edit");
   };
 
   const addEditPerson = person => {
@@ -46,23 +48,43 @@ export const App = () => {
         })
       );
     }
-    setMenu("home");
+    history.push("/");
   };
 
   return (
     <div className="App">
       <Menu
-        onClickHome={() => go("home")}
         onClickAdd={() => {
           setCurrentPerson(null);
-          go("add");
         }}
       />
-      {menu === "home" ? (
-        <DataTable data={data} onDel={del} onEdit={edit} />
-      ) : (
-        <AddEditForm person={currentPerson} onSubmit={addEditPerson} />
-      )}
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => <DataTable data={data} onDel={del} onEdit={edit} />}
+        />
+        <Route
+          path="/person"
+          render={() => <DataTable data={data} onDel={del} onEdit={edit} />}
+        />
+        <Route
+          exact
+          path="/add"
+          render={() => <AddEditForm onSubmit={addEditPerson} />}
+        />
+        <Route
+          exact
+          path="/edit"
+          render={() => (
+            <AddEditForm person={currentPerson} onSubmit={addEditPerson} />
+          )}
+        />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+        {/* when none of the above match, <NoMatch> will be rendered */}
+        <Route component={NoMatch} />
+      </Switch>
     </div>
   );
-};
+});
