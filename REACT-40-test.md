@@ -1,6 +1,6 @@
-# React-00
+# React-40-test
 
-Simplest React CRUD demo without 3rd party libraries or frameworks.
+TO be updated..
 
 # Branch Information
 
@@ -8,3 +8,7 @@ How to test react app:
 
 - unit test with Jest
 - integration with cypress
+
+## cypress
+
+node_modules/.bin/cypress open
