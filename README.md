@@ -16,3 +16,18 @@ Basic react crud demo with mocked data. No third party library used.
 ## React-00-Hooks
 
 React-00 refactor with hooks.
+
+
+## React-20-router
+
+React-00-Hooks with router.
+
+
+## React-30-redux
+
+React-20-router with redux.
+
+
+## React-40-test
+
+React-20-router and tests.
