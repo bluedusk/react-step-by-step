@@ -1,5 +1,4 @@
-# React-00
+# React-20-router
 
-Simplest React CRUD demo without 3rd party libraries or frameworks.
-
-- react router
+- react hook
+- router
