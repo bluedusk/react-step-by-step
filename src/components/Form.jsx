@@ -1,7 +1,7 @@
 import React from "react";
 
 export const DataForm = ({ person, onChange, onSubmit }) => (
-  <div className="form">
+  <form className="form">
     <div className="row">
       <span>ID:</span>
       <input
@@ -33,9 +33,9 @@ export const DataForm = ({ person, onChange, onSubmit }) => (
       />
     </div>
     <div>
-      <button className="button" onClick={onSubmit}>
+      <button type="submit" className="button" onClick={onSubmit}>
         Submit
       </button>
     </div>
-  </div>
+  </form>
 );

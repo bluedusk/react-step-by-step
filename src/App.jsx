@@ -14,7 +14,6 @@ export const App = withRouter(({ history }) => {
   const [data, setData] = useState([]);
   const [currentPerson, setCurrentPerson] = useState(null);
 
-  console.log(history);
   // side effect
   useEffect(() => {
     setData(MockData);
